@@ -14,10 +14,10 @@ func CreateInitial() *migrate.Migration {
 			CREATE TABLE ve_inventory (
 				id int,
 				name varchar(255),
-				condition varchar(500),
-				dateOfPurchase datetime
+				state varchar(500),
+				dateOfPurchase DATE,
 				slug varchar(255),
-				category int
+				category int,
 				PRIMARY KEY (id)
 			) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 			`,
@@ -25,7 +25,6 @@ func CreateInitial() *migrate.Migration {
 			CREATE TABLE ve_people (
 				id int,
 				name varchar(255),
-				qualification int,
 				wavier varchar(255),
 				PRIMARY KEY (id)
 			) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
@@ -35,10 +34,10 @@ func CreateInitial() *migrate.Migration {
 				id int,
 				inv_id int,
 				person_id int,
-				date_out datetime,
-				date_in datetime,
-				condition_in varchar(500),
-				condition_out varchar(500)
+				date_out DATE,
+				date_in DATE,
+				state_in varchar(500),
+				state_out varchar(500),
 				PRIMARY KEY (id)
 			) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 			`,
